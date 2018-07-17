@@ -5,6 +5,7 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
       t.string     :title
       t.text       :description
       t.boolean    :active, default: true
+      t.boolean    :feature, default: false
 
       t.timestamps
     end

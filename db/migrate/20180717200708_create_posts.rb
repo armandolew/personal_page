@@ -9,6 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.boolean    :active, default: true
       t.datetime   :date, default: DateTime.now
       t.string     :slug
+      t.boolean    :feature, default: false
 
       t.timestamps
     end

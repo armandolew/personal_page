@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180717225605) do
     t.string "title"
     t.text "description"
     t.boolean "active", default: true
+    t.boolean "feature", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_albums_on_creator_id"
@@ -44,8 +45,9 @@ ActiveRecord::Schema.define(version: 20180717225605) do
     t.text "description"
     t.text "content"
     t.boolean "active", default: true
-    t.datetime "date", default: "2018-07-17 23:01:13"
+    t.datetime "date", default: "2018-07-17 23:18:00"
     t.string "slug"
+    t.boolean "feature", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_posts_on_album_id"
