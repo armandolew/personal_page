@@ -9,6 +9,8 @@
   <strong>Image:</strong>
 
   <%= image_tag "data:image/jpeg;base64,#{@image.image}" %>
+
+  Views: <%= @image.views.count %>
 </p>
 
 <%= link_to 'Edit', edit_image_path(@image) %> |

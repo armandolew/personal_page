@@ -4,9 +4,11 @@
 
 <div class="grid">
   <% @images.each do |image| %>
-    <div class="grid-item">
-      <%= image_tag "data:image/jpeg;base64,#{image.image}" %>
-    </div>
+    <%= link_to image do %>
+      <div class="grid-item">
+        <%= image_tag "data:image/jpeg;base64,#{image.image}" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

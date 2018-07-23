@@ -10,6 +10,14 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    view = View.new(
+      viewable: @image,
+      ip_address: request.remote_ip
+    )
+
+    if view.valid?
+      view.save
+    end
   end
 
   # GET /images/new

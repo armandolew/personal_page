@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180720195441) do
+ActiveRecord::Schema.define(version: 20180723232828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20180720195441) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.string "likeable_type"
+    t.bigint "likeable_id"
+    t.bigint "user_id"
+    t.boolean "like", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -85,6 +96,16 @@ ActiveRecord::Schema.define(version: 20180720195441) do
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "views", force: :cascade do |t|
+    t.string "viewable_type"
+    t.bigint "viewable_id"
+    t.string "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ip_address"], name: "index_views_on_ip_address"
+    t.index ["viewable_type", "viewable_id"], name: "index_views_on_viewable_type_and_viewable_id"
   end
 
 end

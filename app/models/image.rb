@@ -1,6 +1,8 @@
 class Image < ApplicationRecord
   belongs_to :imageable, polymorphic: true, optional: true
 
+  has_many :views, as: :viewable, dependent: :destroy
+
   attr_accessor :image_path
 
   before_create do
