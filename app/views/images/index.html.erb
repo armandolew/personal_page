@@ -15,7 +15,7 @@
     <% @images.each do |image| %>
       <tr>
         <td><%= image.name %></td>
-        <td><%= image_tag "data:image/jpeg;base64,#{image.image}" %></td>
+        <td><%= image_tag "data:image/jpeg;base64,#{image.image}", class: 'image_thumb_index' %></td>
         <td><%= link_to 'Show', image %></td>
         <td><%= link_to 'Edit', edit_image_path(image) %></td>
         <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
